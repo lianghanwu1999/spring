@@ -1,0 +1,4 @@
+# Project exclude paths
+/lhw_spring_aop/
+/lhw_spring_ioc/target/
+/lhw_spring_ioc_anno/target/

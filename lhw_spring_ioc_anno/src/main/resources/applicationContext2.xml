@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+<!--    加载外部的properties文件 到spring容器-->
+<!--    <context:property-placeholder location="xx.properties"/>  properties文件在resources包下，使用classpath:参数 -->
+<!--    <property name="" value="${key}"/>-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+
+    <!--    注入数据源对象的依赖，注入好参数,交由spring容器进行管理-->
+    <!--    注入数据源对象的依赖，交由spring连接数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+<!--        注入参数-->
+<!--        将value改成properties文件的key-->
+        <property name="driverClass" value="${jdbc.driver"></property>
+        <property name="JdbcUrl" value="${jdbc.url}"></property>
+        <property name="user" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+<!--    注入UserDao持久层的实例-->
+    <bean id="userDao" class="com.lhw.dao.Impl.UserDaoImpl"></bean>
+
+<!--    注入UserService业务层的实例-->
+    <bean id="userService" class="com.lhw.service.Impl.UserServiceImpl">
+<!--        注入属性值-->
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+</beans>

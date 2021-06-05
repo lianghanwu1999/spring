@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+      <!--set 注入1.设置p标签-->
+<!--    xmlns:p="http://www.springframework.org/schema/p"-->
+
+
+    <!--    注入set方式的依赖-->
+
+    <!--    在这个界面注入依赖是: 配置对象依赖注入，将把对象的创建交给了Spring进行管理-->
+
+        <!--    注入userDao依赖-->
+<!--        <bean id="userDao" class="com.lhw.dao.impl.UserDaoImpl" ></bean>-->
+<!--        &lt;!&ndash;    注入userService依赖&ndash;&gt;-->
+<!--        <bean id="userService" class="servlet.impl.UserServletImpl">-->
+<!--            &lt;!&ndash; 将容器中的UserDao，通过userService的userDao方法注入给userDao&ndash;&gt;-->
+<!--            <property name="userDao" ref="userDao"></property>-->
+<!--        </bean>-->
+
+<!--    简化set注入-->
+    <bean id="userDao" class="com.lhw.dao.impl.UserDaoImpl" ></bean>
+    <!--    注入userService依赖-->
+    <bean id="userService" class="servlet.impl.UserServletImpl" p:userDao-ref="userDao"></bean>
+
+
+</beans>

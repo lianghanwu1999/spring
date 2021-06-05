@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+    <!--    注入c3p0数据源对象的依赖，注入好参数,交由spring容器进行管理-->
+    <!--    注入数据源对象的依赖，交由spring连接数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+<!--        注入参数-->
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="JdbcUrl" value="jdbc:mysql://localhost:3306/lhw"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="123456"></property>
+    </bean>
+</beans>

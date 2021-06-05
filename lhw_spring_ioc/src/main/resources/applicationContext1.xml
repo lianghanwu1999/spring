@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    在这个界面注入依赖是: 配置对象依赖注入，将把对象的创建交给了Spring进行管理-->
+
+<!--        bean的实例化三种方式-->
+<!--        配置无参构造方法-->
+<!--        <bean id="userDao" class="com.lhw.dao.impl.UserDaoImpl" ></bean>-->
+
+<!--        配置静态工厂方法-->
+<!--        <bean id="userDao" class="factory.StaticFactory" factory-method="getUserDao" ></bean>-->
+
+<!--        配置实例工厂方法-->
+<!--        spring创建工厂对象-->
+<!--        <bean id="factory" class="factory.DynamicFactory"></bean>-->
+<!--        通过实现工程方法-->
+<!--        <bean id="userDao"  factory-bean="factory" factory-method="getUserDao"></bean>-->
+
+
+
+</beans>

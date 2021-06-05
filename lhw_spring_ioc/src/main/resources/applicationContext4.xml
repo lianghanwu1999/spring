@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+      <!--set 注入1.设置p标签-->
+<!--    xmlns:p="http://www.springframework.org/schema/p"-->
+
+
+    <!--    注入有参数方式的依赖-->
+
+    <!--    在这个界面注入依赖是: 配置对象依赖注入，将把对象的创建交给了Spring进行管理-->
+
+        <!--    注入userDao依赖-->
+        <bean id="userDao" class="com.lhw.dao.impl.UserDaoImpl" ></bean>
+        <bean id="userService" class="servlet.impl.UserServletImpl">
+<!--            第一个userDao是内部参数构造名，第二是容器引用bean的Id参数名-->
+            <constructor-arg name="userDao" ref="userDao"></constructor-arg>
+        </bean>
+
+
+</beans>

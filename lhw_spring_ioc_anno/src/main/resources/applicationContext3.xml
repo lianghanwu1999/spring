@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+<!--    加载外部的properties文件 到spring容器-->
+<!--    <context:property-placeholder location="xx.properties"/>  properties文件在resources包下，使用classpath:参数 -->
+<!--    <property name="" value="${key}"/>-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+
+    <!--    注入数据源对象的依赖，注入好参数,交由spring容器进行管理-->
+    <!--    注入数据源对象的依赖，交由spring连接数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+<!--        注入参数-->
+<!--        将value改成properties文件的key-->
+        <property name="driverClass" value="${jdbc.driver"></property>
+        <property name="JdbcUrl" value="${jdbc.url}"></property>
+        <property name="user" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+<!--    配置组件扫描-->
+<!--    作用是指定哪个包及其子包下的Bean需要进行扫描，描以便识别使用注解配置的类、字段和方法-->
+    <context:component-scan base-package="com.lhw"></context:component-scan>
+
+</beans>

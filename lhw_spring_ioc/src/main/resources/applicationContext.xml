@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    在这个界面注入依赖是: 配置对象依赖注入，将把对象的创建交给了Spring进行管理-->
+    <!--    将这模块定义为主配置模块-->
+    <!--    引入其他配置模块:相当于导包-->
+    <!--    引入第一配置模块-->
+    <import resource="applicationContext1.xml"/>
+    <!--    引入第二配置模块-->
+    <import resource="applicationContext2.xml"/>
+    <!--    引入第三配置模块-->
+    <import resource="applicationContext3.xml"/>
+    <!--    引入第四配置模块-->
+    <import resource="applicationContext4.xml"/>
+    <!--    引入第五配置模块-->
+    <import resource="applicationContext5.xml"/>
+    <!--    引入第六配置模块-->
+    <import resource="applicationContext6.xml"/>
+</beans>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    在这个界面注入依赖是: 配置对象依赖注入，将把对象的创建交给了Spring进行管理-->
+        <!--        id是唯一标识，class是全限定名-->
+        <!--        在配置中指定初始化方法和销毁方法-->
+        <!--        <bean id="userDao" class="com.lhw.dao.impl.UserDaoImpl" init-method="init" destroy-method="destory"></bean>-->
+
+<!--    实例对象依赖注入-->
+        <!--    配置对象依赖注入，将把对象的创建交给了 Spring容器进行管理-->
+        <!--    因为UserService和UserDao都在Spring容器中，而最终程序使用的是UserService，所以可以在Spring容器中，
+            将UserDao设置到UserService内部 ，将来要使用两者，直接调用UserService就可以了-->
+        <!--    注入userDao依赖，将userDao设置(注入)到userService内部 -->
+        <!--    注入userDao依赖-->
+            <bean id="userDao" class="com.lhw.dao.impl.UserDaoImpl" ></bean>
+        <!--    注入userService依赖-->
+            <bean id="userService" class="servlet.impl.UserServletImpl"></bean>
+</beans>

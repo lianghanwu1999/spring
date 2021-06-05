@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    注入普通属性值的依赖-->
+
+    <!--    在这个界面注入依赖是: 配置对象依赖注入，将把对象的创建交给了Spring进行管理-->
+
+        <!--    注入userDao依赖-->
+        <bean id="userDao" class="com.lhw.dao.impl.UserDaoImpl2" >
+<!--            进行普通数据类型注入，普通数据类型注入用value-->
+            <property name="username" value="zhangsan"/>
+<!--            将普通数据类型age，在userDaoImpl2进行注入-->
+            <property name="age" value="18"/>
+        </bean>
+        <bean id="userService" class="servlet.impl.UserServletImpl">
+<!--            第一个userDao是内部参数构造名，第二是容器引用bean的Id参数名-->
+            <constructor-arg name="userDao" ref="userDao"></constructor-arg>
+        </bean>
+
+
+</beans>
